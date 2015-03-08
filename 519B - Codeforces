@@ -1,0 +1,36 @@
+using System;
+
+namespace _519B___Codeforces
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            string[] str1 = Console.ReadLine().Split();
+            string[] str2 = Console.ReadLine().Split();
+            string[] str3 = Console.ReadLine().Split();
+
+            ulong sum1 = SumStr(str1);
+            ulong sum2 = SumStr(str2);
+            ulong sum3 = SumStr(str3);
+            
+            ulong l = sum1 - sum2;
+            ulong k = sum2 - sum3;
+
+            Console.WriteLine(l);
+            Console.WriteLine(k);
+            //Console.ReadKey();
+        }
+
+        static ulong SumStr(string[] str)
+        {
+            ulong sum = 0;
+            foreach (string item in str)
+            {
+                sum += ulong.Parse(item);
+            }
+            return sum;
+        }
+    }
+}
