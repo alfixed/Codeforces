@@ -1,8 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _496B___Codeforces
 {
@@ -29,7 +25,6 @@ namespace _496B___Codeforces
             }
 
             Console.WriteLine(min);
-            //Console.ReadKey();
         }
 
         static char[] ShiftStroka(int n, char[] stroka)
