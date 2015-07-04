@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+
+namespace _546C_codeforces
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            string[] str1 = Console.ReadLine().Split();
+            string[] str2 = Console.ReadLine().Split();
+
+            var player1 = new List<int>();
+            var player2 = new List<int>();
+
+            for(int i = 1; i <= int.Parse(str1[0]); i++)
+            {
+                player1.Add(int.Parse(str1[i]));
+            }
+            for (int i = 1; i <= int.Parse(str2[0]); i++)
+            {
+                player2.Add(int.Parse(str2[i]));
+            }
+
+            n = 0;
+            while(true)
+            {
+                if(player1.Count > 0 && player2.Count > 0)
+                {
+                    if (n > 1000) { Console.WriteLine(-1); return; }
+                    if(player1[0] > player2[0])
+                    {
+                        player1.Add(player2[0]);
+                        player1.Add(player1[0]);
+                        player1.RemoveAt(0);
+                        player2.RemoveAt(0);
+                    }
+                    else
+                    {
+                        player2.Add(player1[0]);
+                        player2.Add(player2[0]);
+                        player1.RemoveAt(0);
+                        player2.RemoveAt(0);
+                    }
+                    n++;
+                }
+                else
+                {
+                    if (player1.Count == 0)Console.WriteLine("{0} 2", n);
+                    else Console.WriteLine("{0} 1", n);
+
+                    return;
+                }
+                
+            }
+        }
+    }
+}
